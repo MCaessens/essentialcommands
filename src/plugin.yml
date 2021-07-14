@@ -7,7 +7,11 @@ description: Essential plugin that suits all your basic needs!
 commands:
    msg:
     description: Use /msg {player} {message}, to send a message to a player.
+    aliases: [message]
    ghost:
     description: Use /ghost to go into ghost mode.
    suicide:
     description: Use this command to kill yourself.
+   tp:
+    description: Use this command to teleport to another player.
+    aliases: [teleport]

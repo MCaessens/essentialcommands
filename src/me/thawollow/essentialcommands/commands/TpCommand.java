@@ -15,6 +15,7 @@ public class TpCommand implements CommandExecutor {
 	
 	public TpCommand(Main plugin) {
 		_plugin = plugin;
+		_plugin.getCommand("tp").setExecutor(this);
 	}
 
 	@Override
