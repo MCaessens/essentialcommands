@@ -1,0 +1,13 @@
+name: EssentialCommands
+version: 1.0
+author: ThaWolloW
+main: me.thawollow.essentialcommands.Main
+description: Essential plugin that suits all your basic needs!
+
+commands:
+   msg:
+    description: Use /msg {player} {message}, to send a message to a player.
+   ghost:
+    description: Use /ghost to go into ghost mode.
+   suicide:
+    description: Use this command to kill yourself.
