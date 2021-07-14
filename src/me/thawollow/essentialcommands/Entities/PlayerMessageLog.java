@@ -1,4 +1,4 @@
-package me.thawollow.essentialcommands.commands.Entities;
+package me.thawollow.essentialcommands.Entities;
 
 import java.time.LocalDateTime;
 

@@ -9,30 +9,36 @@ import org.bukkit.entity.Player;
 import me.thawollow.essentialcommands.Main;
 import me.thawollow.essentialcommands.Services.MessageService;
 
-public class SuicideCommand implements CommandExecutor {
-
-	private Main _plugin;
-	public SuicideCommand(Main plugin) {
-		_plugin = plugin;
-		_plugin.getCommand("suicide").setExecutor(this);
-	}
+public class TpCommand implements CommandExecutor {
 	
+	private Main _plugin;
+	
+	public TpCommand(Main plugin) {
+		_plugin = plugin;
+	}
+
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+		boolean succeeded = false;
 		if (!(sender instanceof Player)) {
 			sender.sendMessage(MessageService.onlyForPlayers());
 		}
-		
 		Player p = (Player) sender;
-		p.damage(1000);
-		p.sendMessage("You just killed yourself!");
-		var onlinePlayers = Bukkit.getServer().getOnlinePlayers();
+		if (args.length < 1) {
+			p.sendMessage(MessageService.createErrorMessage(MessageService.argumentNotFoundMessage));
+		}
+		else {
+			Player target = Bukkit.getPlayer(args[0]);
+			if (target == null) {
+				p.sendMessage(MessageService.createErrorMessage(MessageService.playerNotFoundMessage));
+			}
+			else {
+				p.teleport(target);
+				succeeded = true;
+			}
+		}
 		
-		onlinePlayers.forEach(player -> {
-			player.sendMessage(p.getName() + " just offed themselves");
-		});
-		
-		return true;
+		return succeeded;
 	}
 
 }

@@ -11,7 +11,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import me.thawollow.essentialcommands.Main;
-import me.thawollow.essentialcommands.commands.Entities.PlayerInfo;
+import me.thawollow.essentialcommands.Entities.PlayerInfo;
+import me.thawollow.essentialcommands.Services.MessageService;
 
 public class GhostCommand implements CommandExecutor {
 
@@ -28,7 +29,7 @@ public class GhostCommand implements CommandExecutor {
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		if (!(sender instanceof Player)) {
-			sender.sendMessage("Only players may execute this command!");
+			sender.sendMessage(MessageService.onlyForPlayers());
 			return true;
 		}
 		Player p = (Player) sender;
