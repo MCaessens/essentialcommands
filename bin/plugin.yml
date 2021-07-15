@@ -15,3 +15,7 @@ commands:
    tp:
     description: Use this command to teleport to another player.
     aliases: [teleport]
+   home:
+    description: Use /home {name} to go home.
+   sethome:
+    description: Use /sethome {name} to set a home.
